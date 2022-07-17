@@ -10,7 +10,7 @@ async function buscarTodasTarefas() {
 
 let resultado;
 
-resultado = await buscarTodasTarefas();
+// resultado = await buscarTodasTarefas();
 
 async function buscarPorUsuario(user) {
   const configs = {
@@ -22,7 +22,7 @@ async function buscarPorUsuario(user) {
   return resultado.data;
 }
 
-resultado = await buscarPorUsuario('seumathias');
+//resultado = await buscarPorUsuario('seumathias');
 
 async function inserirTarefa(user, description) {
   const DTO = {
@@ -33,7 +33,7 @@ async function inserirTarefa(user, description) {
   const resultado = await axios.post(url, DTO);
   return resultado.data;
 }
-resultado = await inserirTarefa('Melissa', 'Entregar exercício');
+// resultado = await inserirTarefa('Melissa', 'Entregar exercício');
 
 async function alterarTarefa(id, user, description) {
   const dto = {
@@ -45,19 +45,19 @@ async function alterarTarefa(id, user, description) {
   return alterar.data;
 }
 
-resultado = await alterarTarefa(
+/* resultado = await alterarTarefa(
   'd3d64784-d290-49b5-8e19-3b918cd60a91',
   'Daniel',
   'e suas extensões de arquivo'
-);
+);*/
 
 async function deletarTarefa(id) {
   const deletar = await axios.delete(`${url}${id}`);
   return deletar.data;
 }
-resultado = await deletarTarefa('d3d64784-d290-49b5-8e19-3b918cd60a91');
+//resultado = await deletarTarefa('d3d64784-d290-49b5-8e19-3b918cd60a91');
 
-function deleteByUser(user) {
+async function deleteByUser(user) {
   const configs = {
     params: {
       user,
@@ -65,5 +65,7 @@ function deleteByUser(user) {
   };
   const deletar = await axios.delete(url, configs);
 }
+
+inserirTarefa('Matheus', 'minha tarefa');
 
 console.log(resultado);
